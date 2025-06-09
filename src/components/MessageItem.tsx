@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import { createMarkdownComponents } from "@/components/markdownComponents";
 import { ChatHeader } from "@/components/MessageHeader";
 import { MessageActionsButton } from "@/components/MessageActionsButton";
+import { MessageSkeleton } from "@/components/MessageSkeleton";
 import { ThinkingDisplay } from "@/components/ThinkingDisplay";
 import type { Message } from "@/utils/types";
 
@@ -41,7 +42,7 @@ export function MessageItem({ message, isDarkMode = true }: Props) {
         !isUser &&
         !message.isError &&
         !message.isThinkingLoading ? (
-          <span className="loading loading-dots loading-sm"></span>
+          <MessageSkeleton />
         ) : (
           <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
             {message.content}

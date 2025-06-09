@@ -8,6 +8,9 @@
   .list-inside {
     list-style-position: unset;
   }
+  img {
+    border-radius: 10px;
+  }
 }
 
 .prose {
