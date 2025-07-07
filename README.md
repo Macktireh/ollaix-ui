@@ -35,7 +35,7 @@ Ollaix is built with a modern and robust set of technologies:
 - 🌍 **i18next & react-i18next:** Internationalization framework for adding multi-language support.
 - 📝 **react-markdown & remark-gfm:** For rendering Markdown content with GitHub Flavored Markdown support.
 - 🎨 **react-syntax-highlighter:** For syntax highlighting code blocks.
-- Icons by [Lucide React](https://lucide.dev/icons/)
+- 🌟 Icons by [Lucide React](https://lucide.dev/icons/)
 
 ---
 
@@ -52,7 +52,7 @@ Before you begin, ensure you have the following installed:
 
 #### 📦 Backend API Required
 
-> \[!IMPORTANT]
+> [!IMPORTANT]
 > This frontend requires the [Ollaix API backend](https://github.com/Macktireh/ollaix) to function properly.
 >
 > Make sure the backend is running and accessible via the `VITE_API_BASE_URL` environment variable (default: `http://localhost:8000`).
@@ -92,7 +92,7 @@ To learn more or get started with the backend, check out the [Ollaix API README]
     VITE_API_BASE_URL=http://localhost:8000
     ```
 
-> [!WARNING]
+> [!IMPORTANT]
 > This frontend requires a backend API to function. Ensure your backend is running and accessible at the specified `VITE_API_BASE_URL`.
 
 4.  **Run the development server:**
