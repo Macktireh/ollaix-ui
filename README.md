@@ -1,4 +1,14 @@
-# Ollaix UI 🤖
+<p align="center">
+    <img src="https://ollaix.macktireh.dev/chatbot.png" alt="Ollaix logo" />
+</p>
+
+---
+
+<h1 align="center">🤖 Ollaix UI 💻</h1>
+
+<p align="center">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" />
+</p>
 
 **Ollaix** is a modern chatbot-style web interface built with React, TypeScript, Vite, Tailwind CSS, and DaisyUI. Inspired by the ChatGPT user experience, this app enables users to interact with a smart assistant through a clean, responsive, simple, fast and user-friendly.
 
@@ -7,6 +17,8 @@
 ## Demo 🚀
 
 Experience Ollaix live here: [https://ollaix.macktireh.dev](https://ollaix.macktireh.dev)
+
+<video src="https://github-production-user-asset-6210df.s3.amazonaws.com/49348001/466126628-ad73ba7a-1796-4454-a258-d95998f1fa3b.mp4" align="center"></video>
 
 ---
 

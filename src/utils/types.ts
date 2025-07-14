@@ -19,3 +19,5 @@ export interface Message {
   loaded?: boolean;
   isThinkingLoading?: boolean;
 }
+
+export const defaultModelId = import.meta.env.VITE_API_DEFAULT_MODEL_ID;

@@ -68,7 +68,7 @@ export const ChatContainer = forwardRef<ChatContainerRef, Props>(
 
     return (
       <div
-        className="flex-grow w-full overflow-y-auto p-4 md:p-6 relative"
+        className="flex-grow w-full overflow-y-auto p-2 md:p-6 relative"
         ref={chatContainerRef}
         onScroll={handleScroll}
       >

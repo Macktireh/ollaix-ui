@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { ArrowUp, CircleStop } from "lucide-react";
 
 import { useModels } from "@/hooks/useModels";
-import type { ModelType } from "@/utils/types";
+import { defaultModelId, type ModelType } from "@/utils/types";
 
 type Props = {
   currentMessage: string;
@@ -29,7 +29,7 @@ export const ChatForm = ({
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    if (models.length !== 0) onModelChange(models[1]);
+    if (models.length !== 0) onModelChange(models.find((m) => m.id === defaultModelId) || models[0]);
   }, [models]);
 
   const getModelById = (id: string) => {

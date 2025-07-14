@@ -45,7 +45,7 @@ export const ThinkingDisplay = ({
       </button>
       {isExpanded && (
         <div className="px-3 pb-3 border-t border-base-300 bg-base-50">
-          <div className="text-sm text-base-content/70 italic leading-relaxed whitespace-pre-wrap">
+          <div className="text-sm text-base-content/50 italic leading-relaxed whitespace-pre-wrap">
             {thinkingContent}
           </div>
         </div>
