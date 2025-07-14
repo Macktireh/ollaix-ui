@@ -18,7 +18,7 @@
 
 Experience Ollaix live here: [https://ollaix.macktireh.dev](https://ollaix.macktireh.dev)
 
-<video src="https://github-production-user-asset-6210df.s3.amazonaws.com/49348001/466126628-ad73ba7a-1796-4454-a258-d95998f1fa3b.mp4" align="center"></video>
+<video src="https://github.com/user-attachments/assets/ddd9f622-391b-4b5a-861e-c1086cb14dd5" align="center"></video>
 
 ---
 
