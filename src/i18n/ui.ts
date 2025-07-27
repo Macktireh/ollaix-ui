@@ -10,6 +10,8 @@ const defaultUiTranslation = {
     "initial.message.subtitle": "Select a model and ask your question below.",
     "chat.message.thinking.loading.title": "Thinking...",
     "chat.message.thinking.title": "Show reasoning",
+    "chat.message.edit.send": "Send",
+    "chat.message.edit.cancel": "Cancel",
     "chatform.placeholder": "Type your question",
     "chat.error": "Oops! An error occurred:",
     "404.page.title": "Page not found",
@@ -19,8 +21,7 @@ const defaultUiTranslation = {
 };
 
 type LangType = "en" | "fr";
-type UiTranslationType = typeof defaultUiTranslation;
-export type UiTranslation = keyof typeof defaultUiTranslation["translation"];
+export type UiTranslationType = typeof defaultUiTranslation;
 
 export const resources: Record<LangType, UiTranslationType> = {
   en: defaultUiTranslation,
@@ -37,6 +38,8 @@ export const resources: Record<LangType, UiTranslationType> = {
         "Sélectionnez un modèle et posez votre question ci-dessous.",
       "chat.message.thinking.loading.title": "Réflexion en cours...",
       "chat.message.thinking.title": "Afficher le raisonnement",
+      "chat.message.edit.send": "Envoyer",
+      "chat.message.edit.cancel": "Annuler",
       "chatform.placeholder": "Saisissez votre question",
       "chat.error": "Oups ! Une erreur est survenue :",
       "404.page.title": "Page non trouvée",

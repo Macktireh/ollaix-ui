@@ -7,6 +7,10 @@ import { type Message } from "@/utils/types";
 
 interface Props {
   messages: Message[];
+  handleSendUpdateMessage: (
+    userMessage: Message,
+    conversation: Message[]
+  ) => Promise<void>;
   isLoading: boolean;
   error: string | null;
 }
@@ -16,7 +20,7 @@ export type ChatContainerRef = {
 };
 
 export const ChatContainer = forwardRef<ChatContainerRef, Props>(
-  ({ messages, isLoading, error }, ref) => {
+  ({ messages, handleSendUpdateMessage, isLoading, error }, ref) => {
     const { t } = useTranslation();
     const chatContainerRef = useRef<HTMLDivElement>(null);
     const shouldAutoScrollRef = useRef<boolean>(true);
@@ -74,7 +78,10 @@ export const ChatContainer = forwardRef<ChatContainerRef, Props>(
       >
         <div className="mx-auto w-[100%] max-w-[768px]">
           {messages.length === 0 && !isLoading && !error && <InitialMessage />}
-          <MessageList messages={messages} />
+          <MessageList
+            messages={messages}
+            handleSendUpdateMessage={handleSendUpdateMessage}
+          />
           {error && messages.length === 0 && (
             <div className="text-center p-4">
               <p className="text-error font-semibold">{t("chat.error")}</p>

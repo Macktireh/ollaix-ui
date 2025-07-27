@@ -1,35 +1,34 @@
-import { useState } from "react";
-import { ThumbsDown, ThumbsUp } from "lucide-react";
-
 import { CopyButton } from "@/components/CopyButton";
+import { EditButton } from "@/components/EdidButton";
+import { LikeDislikeButton } from "@/components/LikeDislikeButton";
+import type { Message } from "@/utils/types";
 
 type Props = {
-  text?: string;
+  message: Message;
+  isUser: boolean;
+  modify: () => void;
 };
 
-export function MessageActionsButton({ text }: Props) {
-  const [liked, setLiked] = useState(false);
-  const [disliked, setDisliked] = useState(false);
-
+export function MessageActionsButton({ message, isUser, modify }: Props) {
   return (
-    <div className="flex items-center mt-1">
-      <CopyButton text={text} />
-      {!disliked && (
-        <button
-          className="btn btn-ghost btn-xs rounded-md hover:bg-base-content/12"
-          onClick={() => setLiked((prev) => !prev)}
-        >
-          <ThumbsUp size={14} fill={liked ? "currentColor" : "none"} />
-        </button>
-      )}
-      {!liked && (
-        <button
-          className="btn btn-ghost btn-xs rounded-md hover:bg-base-content/12"
-          onClick={() => setDisliked((prev) => !prev)}
-        >
-          <ThumbsDown size={14} fill={disliked ? "currentColor" : "none"} />
-        </button>
-      )}
+    <div
+      className={`chat-footer text-xs opacity-70 pb-1 ${isUser && "invisible"}`}
+    >
+      <div className="flex items-center mt-1">
+        {isUser ? (
+          <>
+            <CopyButton text={message.content} />
+            <EditButton setEditing={modify} />
+          </>
+        ) : (
+          message.loaded && (
+            <>
+              <CopyButton text={message.content} />
+              <LikeDislikeButton />
+            </>
+          )
+        )}
+      </div>
     </div>
   );
 }
