@@ -20,6 +20,10 @@
   }
 }
 
+.chat-end:hover > .chat-footer {
+  visibility: visible;
+}
+
 .prose {
   :root & {
     :where(code):not(pre > code) {
