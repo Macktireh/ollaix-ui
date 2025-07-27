@@ -40,10 +40,11 @@ export const useChatStream = () => {
    * Create a new user message
    */
   const createUserMessage = useCallback(
-    (content: string): Message => ({
+    (content: string, model: string): Message => ({
       id: crypto.randomUUID(),
       content: content.trim(),
       role: "user",
+      model,
     }),
     []
   );
@@ -67,16 +68,16 @@ export const useChatStream = () => {
   /**
    * Get conversation history (excluding the AI message being generated)
    */
-  const getConversationHistory = useCallback((): Message[] => {
+  const getConversationHistory = useCallback((conversation: Message[]): Message[] => {
     // Only include messages that are fully loaded/completed
-    return messages.filter((msg) => {
+    return conversation.filter((msg) => {
       // Include user messages (they're always complete)
       if (msg.role === "user") return true;
       // Include assistant messages only if they're loaded
       if (msg.role === "assistant") return msg.loaded === true;
       return true;
     });
-  }, [messages]);
+  }, []);
 
   /**
    * Manages message sending
@@ -88,11 +89,11 @@ export const useChatStream = () => {
     setIsLoading(true);
 
     // Create messages
-    const userMessage = createUserMessage(currentMessage);
+    const userMessage = createUserMessage(currentMessage, selectedModel?.id!);
     const aiMessage = createAiMessagePlaceholder(selectedModel?.id!);
 
     // Get conversation history before adding new messages
-    const conversationHistory = getConversationHistory();
+    const conversationHistory = getConversationHistory(messages);
 
     // Adds messages to the list
     setMessages((prev) => [...prev, userMessage, aiMessage]);
@@ -138,6 +139,60 @@ export const useChatStream = () => {
   ]);
 
   /**
+   * Manages update message sending
+   */
+  const handleSendUpdateMessage = useCallback(async (userMessage: Message, conversation: Message[]) => {
+    if (!apiServiceRef.current) return;
+
+    setError(null);
+    setIsLoading(true);
+
+    // Create messages
+    const aiMessage = createAiMessagePlaceholder(userMessage.model!);
+
+    // Get conversation history before adding new messages
+    const conversationHistory = getConversationHistory(conversation);
+
+    // Adds messages to the list
+    setMessages([...conversation, userMessage, aiMessage]);
+
+    // Callbacks for the API service
+    const onMessageUpdate = (updates: Partial<Message>) => {
+      updateMessage(aiMessage.id, updates);
+    };
+
+    const onComplete = (finalMessage: Partial<Message>) => {
+      updateMessage(aiMessage.id, finalMessage);
+      setIsLoading(false);
+    };
+
+    const onError = (errorMessage: string) => {
+      setError(errorMessage);
+      updateMessage(aiMessage.id, {
+        content: errorMessage,
+        model: userMessage.model!,
+        isError: true,
+        isThinkingLoading: false,
+      });
+      setIsLoading(false);
+    };
+
+    // Sends the message via the API service with conversation history
+    await apiServiceRef.current.sendMessage(
+      userMessage.content,
+      userMessage.model!,
+      conversationHistory,
+      onMessageUpdate,
+      onComplete,
+      onError
+    );
+  }, [
+    createAiMessagePlaceholder,
+    updateMessage,
+    getConversationHistory,
+  ]);
+
+  /**
    * Stop the current generation
    */
   const handleStopGeneration = useCallback(() => {
@@ -171,6 +226,7 @@ export const useChatStream = () => {
 
     // Actions
     handleSendMessage,
+    handleSendUpdateMessage,
     handleStopGeneration,
   };
 };

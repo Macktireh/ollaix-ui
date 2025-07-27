@@ -18,6 +18,7 @@ export function Home() {
     isLoading,
     error,
     handleSendMessage,
+    handleSendUpdateMessage,
     handleStopGeneration,
   } = useChatStream();
 
@@ -34,6 +35,7 @@ export function Home() {
       <div className="flex flex-col items-center justify-center h-full">
         <ChatContainer
           messages={messages}
+          handleSendUpdateMessage={handleSendUpdateMessage}
           isLoading={isLoading}
           error={error}
           ref={chatContainerRef}
