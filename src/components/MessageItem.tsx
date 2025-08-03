@@ -64,7 +64,7 @@ export function MessageItem({
 
       <div
         style={{
-          maxWidth: IsEditing ? "100%" : "80%",
+          maxWidth: IsEditing ? "100%" : !isUser ? "100%" : "80%",
           width: IsEditing ? "100%" : "",
           borderRadius: 10,
         }}
