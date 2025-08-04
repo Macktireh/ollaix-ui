@@ -17,6 +17,10 @@ const defaultUiTranslation = {
     "404.page.title": "Page not found",
     "404.page.subtitle": "Sorry, we couldn’t find the page you’re looking for.",
     "404.page.goback": "Go back home",
+    "promt.title": "Update Available",
+    "promt.offline.update":
+      "New content available, click on reload button to update.",
+    "promt.offline.reload": "Reload",
   },
 };
 
@@ -46,6 +50,10 @@ export const resources: Record<LangType, UiTranslationType> = {
       "404.page.subtitle":
         "Désolé, nous n'avons pas trouvé la page que vous recherchez.",
       "404.page.goback": "Retour à l'accueil",
+      "promt.title": "Mise à jour disponible",
+      "promt.offline.update":
+        "Nouveau contenu disponible, cliquez sur le bouton de rechargement pour mettre à jour.",
+      "promt.offline.reload": "Recharger",
     },
   },
 };
