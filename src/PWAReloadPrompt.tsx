@@ -1,8 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useRegisterSW } from "virtual:pwa-register/react";
 
-export function ReloadPrompt() {
+export function PWAReloadPrompt() {
   const { t } = useTranslation();
+
+  // check for updates every hour
   const period = 60 * 60 * 1000;
 
   const {

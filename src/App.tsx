@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router";
 import { Layout } from "@/pages/Layout";
 import { Home } from "@/pages/Home";
 import { NotFound } from "@/pages/NotFound";
-import { ReloadPrompt } from "@/Prompt";
+import { PWAReloadPrompt } from "@/PWAReloadPrompt";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-      <ReloadPrompt />
+      <PWAReloadPrompt />
     </>
   );
 }
