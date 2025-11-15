@@ -8,7 +8,7 @@ const preferredLang = navigator.language.split("-")[0];
 i18n.use(initReactI18next).init({
   resources,
   lng: locales.includes(preferredLang) ? preferredLang : "en",
-  // supportedLngs: ["en", "fr"],
+  supportedLngs: locales,
   fallbackLng: "en",
   interpolation: {
     escapeValue: false,
