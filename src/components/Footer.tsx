@@ -5,7 +5,7 @@ export function Footer() {
         <ul className="flex justify-center items-center gap-2 text-[11px] text-base-content/70">
           <li>
             <img
-              src="https://macktireh.dev/images/mack.png"
+              src="https://macktireh.com/images/mack.png"
               alt="Mack"
               width="20"
               height="20"
@@ -15,7 +15,7 @@ export function Footer() {
           <li>
             Created by{" "}
             <a
-              href="https://macktireh.dev"
+              href="https://macktireh.com"
               target="_blank"
               rel="noreferrer"
               className="underline"

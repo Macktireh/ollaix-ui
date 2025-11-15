@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://ollaix.macktireh.dev/chatbot.png" alt="Ollaix logo" />
+    <img src="https://ollaix.macktireh.com/chatbot.png" alt="Ollaix logo" />
 </p>
 
 ---
@@ -16,7 +16,7 @@
 
 ## Demo 🚀
 
-Experience Ollaix live here: [https://ollaix.macktireh.dev](https://ollaix.macktireh.dev)
+Experience Ollaix live here: [https://ollaix.macktireh.com](https://ollaix.macktireh.com)
 
 <video src="https://github-production-user-asset-6210df.s3.amazonaws.com/49348001/466126628-ad73ba7a-1796-4454-a258-d95998f1fa3b.mp4" align="center"></video>
 
